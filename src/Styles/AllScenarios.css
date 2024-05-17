@@ -1,0 +1,37 @@
+/* AllScenarios.css */
+
+.scenario-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.scenario-table th,
+.scenario-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.scenario-table th {
+    background-color: #f2f2f2;
+}
+
+.action-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.add-vehicle {
+    background-color: lightgreen;
+}
+
+.edit {
+    background-color: lightblue;
+}
+
+.delete {
+    background-color: lightcoral;
+}

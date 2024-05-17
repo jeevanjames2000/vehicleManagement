@@ -1,0 +1,51 @@
+/* HomePage.css */
+
+.home-page {
+    padding: 20px;
+}
+
+.scenario-select {
+    margin-bottom: 20px;
+}
+
+.vehicle-table {
+    margin-bottom: 20px;
+}
+
+.vehicle-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.vehicle-table th,
+.vehicle-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.vehicle-table th {
+    background-color: #f2f2f2;
+    color: black;
+}
+
+.vehicle-table button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.vehicle-table button:hover {
+    background-color: #0056b3;
+}
+
+.simulation {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    border: 1px solid #000;
+    overflow: hidden;
+}

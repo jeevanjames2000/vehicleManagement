@@ -1,0 +1,48 @@
+/* Board.css */
+
+.board {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(20, 40px);
+
+    grid-template-rows: repeat(15, 40px);
+    
+    gap: 0;
+    width: 800px;
+ 
+    height: 600px;
+ 
+    background-color: #2ed666;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    
+}
+
+.board::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(0deg, transparent 39px, #000 40px),
+        linear-gradient(90deg, transparent 39px, #000 40px);
+    z-index: 0;
+}
+
+.vehicle {
+    width: 40px;
+    height: 40px;
+    background: red;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    position: absolute;
+    transition: transform 1s linear;
+    z-index: 1;
+   
+}
