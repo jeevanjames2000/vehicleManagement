@@ -1,48 +1,53 @@
 import React, { useEffect, useState } from "react";
 
-const Vehicle = ({ vehicle, scenarioTime }) => {
+const Vehicle = ({ vehicle, scenarioTime, isSimulationRunning }) => {
   const [position, setPosition] = useState({
     x: vehicle.initialPositionX,
     y: vehicle.initialPositionY,
   });
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setPosition((prevPosition) => {
-        let newX = prevPosition.x;
-        let newY = prevPosition.y;
+    let interval;
 
-        switch (vehicle.direction) {
-          case "Towards":
-            newX += vehicle.speed;
-            break;
-          case "Backwards":
-            newX -= vehicle.speed;
-            break;
-          case "Upwards":
-            newY -= vehicle.speed;
-            break;
-          case "Downwards":
-            newY += vehicle.speed;
-            break;
-          default:
-            break;
-        }
+    if (isSimulationRunning) {
+      interval = setInterval(() => {
+        setPosition((prevPosition) => {
+          let newX = prevPosition.x;
+          let newY = prevPosition.y;
 
-        return { x: newX, y: newY };
-      });
-    }, 1000);
+          switch (vehicle.direction) {
+            case "Towards":
+              newX += vehicle.speed;
+              break;
+            case "Backwards":
+              newX -= vehicle.speed;
+              break;
+            case "Upwards":
+              newY -= vehicle.speed;
+              break;
+            case "Downwards":
+              newY += vehicle.speed;
+              break;
+            default:
+              break;
+          }
 
-    setTimeout(() => clearInterval(interval), scenarioTime * 1000);
+          return { x: newX, y: newY };
+        });
+      }, 1000);
+    }
 
-    return () => clearInterval(interval);
-  }, [vehicle, scenarioTime]);
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [isSimulationRunning, vehicle]);
 
   return (
     <div
       className="vehicle"
       style={{
         transform: `translate(${position.x * 40}px, ${position.y * 40}px)`,
+        transition: "transform 1s linear",
       }}
     >
       {vehicle.name}
